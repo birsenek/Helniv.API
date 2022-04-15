@@ -55,5 +55,15 @@ namespace Helniv.API.Controllers
             _cardService.UpdateCard(id, card);
             return Ok(new { message = "Carta atualizada com sucesso!" });
         }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public IActionResult DeleteCard(int id)
+        {
+            _cardService.DeleteCard(id);
+            return Ok(new { message = "Carta excluída com sucesso!" });
+        }
     }
 }

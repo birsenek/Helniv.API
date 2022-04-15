@@ -11,6 +11,7 @@ namespace Helniv.API.Services
         void CreateCard(Card card);
         Card GetById(int id);
         void UpdateCard(int id, Card card);
+        void DeleteCard(int id);
     }
 
     public class CardService : ICardService
@@ -70,6 +71,15 @@ namespace Helniv.API.Services
 
             cardToUpdate = _mapper.Map(card, cardToUpdate);
             _context.Cards.Update(cardToUpdate);
+            _context.SaveChanges();
+
+        }
+
+        public void DeleteCard(int id)
+        {
+            Card cardToDelete = getCard(id);
+
+            _context.Cards.Remove(cardToDelete);
             _context.SaveChanges();
 
         }
