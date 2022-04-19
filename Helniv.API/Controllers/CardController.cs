@@ -2,11 +2,13 @@
 using Helniv.API.Entities;
 using Helniv.API.Services;
 using Helniv.API.Utils;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Helniv.API.Controllers
 {
     [ApiController]
+    
     [Route("/card")]
     public class CardController : Controller
     {
@@ -21,6 +23,7 @@ namespace Helniv.API.Controllers
 
 
         [HttpGet]
+        
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
 
@@ -40,7 +43,7 @@ namespace Helniv.API.Controllers
         }
 
         [HttpPost]
-
+       
         public IActionResult CreateCard(Card card)
         {
             _cardService.CreateCard(card);

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\Helniv.API.csproj": {}
+    "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\Helniv.API.csproj": {}
   },
   "projects": {
-    "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\Helniv.API.csproj": {
+    "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\Helniv.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\Helniv.API.csproj",
+        "projectUniqueName": "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\Helniv.API.csproj",
         "projectName": "Helniv.API",
-        "projectPath": "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\Helniv.API.csproj",
+        "projectPath": "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\Helniv.API.csproj",
         "packagesPath": "C:\\Users\\birse\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\obj\\",
+        "outputPath": "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\birse\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -47,6 +47,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",

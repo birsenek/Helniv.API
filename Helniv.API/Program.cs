@@ -4,7 +4,7 @@ using Helniv.API.Utils;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+//var HelnivPolicy = "_helnivPolicy";
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 // Add services to the container.
 
@@ -21,9 +21,16 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<ICardService, CardService>();
 
 
+builder.Services.AddCors(c =>
+{
+    c.AddPolicy("AllowOrigin", options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+});
+
 var app = builder.Build();
 
 app.UseRouting();
+app.UseCors("AllowOrigin");
+app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
@@ -42,9 +49,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
 
-app.UseAuthorization();
+
+app.UseHttpsRedirection();
 
 app.MapControllers();
 
