@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Helniv.API.Entities;
+using Helniv.API.Interfaces;
 using Helniv.API.Services;
 using Helniv.API.Utils;
 using Microsoft.AspNetCore.Cors;

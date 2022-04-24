@@ -1,18 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\Helniv.API.csproj": {}
+    "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\Helniv.API.csproj": {}
   },
   "projects": {
-    "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\Helniv.API.csproj": {
+    "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\Helniv.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\Helniv.API.csproj",
+        "projectUniqueName": "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\Helniv.API.csproj",
         "projectName": "Helniv.API",
-        "projectPath": "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\Helniv.API.csproj",
+        "projectPath": "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\Helniv.API.csproj",
         "packagesPath": "C:\\Users\\birse\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\obj\\",
+        "outputPath": "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\birse\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

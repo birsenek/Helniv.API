@@ -1,4 +1,4 @@
-using Helniv.API.Entities;
+using Helniv.API.Interfaces;
 using Helniv.API.Services;
 using Helniv.API.Utils;
 using Microsoft.EntityFrameworkCore;
@@ -35,17 +35,11 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
-    endpoints.MapGet("/cards", async context =>
-    {
-        await context.Response.WriteAsync("Hello World!");
-    });
 });
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    ///minmal api controller:
-    //app.MapGet("/cards", async (CardsDbContext db) => await db.Cards.ToListAsync());
     app.UseSwaggerUI();
 }
 

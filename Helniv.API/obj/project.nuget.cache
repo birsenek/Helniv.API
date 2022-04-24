@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ogEwgO05ZQ8X5qrsknByc8GgSPA626mOBGP3u0UYOjjumRgqWL4J98DY18LtZQFmyM1VIvK2gAWVZOFBKkNj+w==",
+  "dgSpecHash": "yjoPxISQs/wV8WZNoLCWF5JSmK3Bpv7RWHahocHQ/ttyl8PToyRHkGqc0AvGJ6Dq/voHB5Akpm5zqSoJ/KNWMQ==",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\Helniv\\helniv.api\\helniv.api\\Helniv.API.csproj",
+  "projectFilePath": "D:\\Projetos\\Helniv\\Helniv.API\\Helniv.API\\Helniv.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\birse\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\birse\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
