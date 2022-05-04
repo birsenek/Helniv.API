@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Helniv.API.Entities;
 using Helniv.API.Interfaces;
+using Helniv.API.Models;
 using Helniv.API.Utils;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,14 +24,12 @@ namespace Helniv.API.Services
             return _context.Cards.OrderBy(i => i.Id);
         }
 
-        public void CreateCard(Card newCard)
+        public void CreateCard(CreateCardRequestModel cardModel)
         {
-            // validate
-            if (_context.Cards.Any(x => x.Nome == newCard.Nome))
-                throw new Exception("Carta com nome '" + newCard.Nome + "'já cadastrada.");
+            if (_context.Cards.Any(x => x.Nome == cardModel.Nome))
+                throw new Exception("Carta com nome '" + cardModel.Nome + "'já cadastrada.");
 
-            // map model to new user object
-            var card = _mapper.Map<Card>(newCard);
+            var card = _mapper.Map<Card>(cardModel);
 
             _context.Cards.Add(card);
             _context.SaveChanges();

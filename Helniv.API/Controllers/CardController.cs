@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Helniv.API.Entities;
 using Helniv.API.Interfaces;
+using Helniv.API.Models;
 using Helniv.API.Services;
 using Helniv.API.Utils;
 using Microsoft.AspNetCore.Cors;
@@ -45,9 +46,15 @@ namespace Helniv.API.Controllers
 
         [HttpPost]
        
-        public IActionResult CreateCard(Card card)
+        public IActionResult CreateCard([FromForm]CreateCardRequestModel cardModel)
         {
-            _cardService.CreateCard(card);
+            _cardService.CreateCard(cardModel);
+            var file = Request.Form.Files[0];
+            using (var savePath = System.IO.File.Create("D:\\Projetos\\Helniv\\Cartas_Test_Upload\\" + file.FileName.ToString()))
+            {
+                file.CopyTo(savePath);
+
+            }
             return Ok(new { message = "Carta criada com sucesso!" });
         }
 
