@@ -3,6 +3,7 @@ using Helniv.API.Entities;
 using Helniv.API.Interfaces;
 using Helniv.API.Models;
 using Helniv.API.Utils;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Helniv.API.Services
@@ -24,10 +25,13 @@ namespace Helniv.API.Services
             return _context.Cards.OrderBy(i => i.Id);
         }
 
-        public void CreateCard(CreateCardRequestModel cardModel)
+        public void CreateCard(CreateCardRequestModel cardModel, IFormFile? file)
         {
             if (_context.Cards.Any(x => x.Nome == cardModel.Nome))
                 throw new Exception("Carta com nome '" + cardModel.Nome + "'já cadastrada.");
+
+            if (file != null)
+                SaveCardFile(file, cardModel.Elemento.ToString());
 
             var card = _mapper.Map<Card>(cardModel);
 
@@ -49,19 +53,22 @@ namespace Helniv.API.Services
             return card;
         }
 
-        public void UpdateCard(int id, Card card)
+        public void UpdateCard(int id, UpdateCardRequestModel cardModel, IFormFile? file)
         {
             Card cardToUpdate = getCard(id);
 
-            if (card.Id == 0)
+            if (cardModel.Id == 0)
             {
-                card.Id = id;
+                cardModel.Id = id;
             }
 
-            if (card.Nome != cardToUpdate.Nome && _context.Cards.Any(x => x.Nome == card.Nome))
+            if (cardModel.Nome != cardToUpdate.Nome && _context.Cards.Any(x => x.Nome == cardModel.Nome))
                 throw new BadHttpRequestException("Já existe uma carta cadastrada com este nome!");
 
-            cardToUpdate = _mapper.Map(card, cardToUpdate);
+            if (file != null)
+                SaveCardFile(file, cardModel.Elemento.ToString());
+            
+            cardToUpdate = _mapper.Map(cardModel, cardToUpdate);
             _context.Cards.Update(cardToUpdate);
             _context.SaveChanges();
 
@@ -74,6 +81,16 @@ namespace Helniv.API.Services
             _context.Cards.Remove(cardToDelete);
             _context.SaveChanges();
 
+        }
+
+        private void SaveCardFile(IFormFile file, string? cardElemento)
+        {
+            var folderPath = Directory.CreateDirectory($"D:\\Projetos\\Helniv\\HelnivFront\\src\\assets\\img\\cartas\\{ cardElemento }\\");
+
+            using (var savePath = File.Create(folderPath.ToString() + file.FileName))
+            {
+                file.CopyTo(savePath);
+            }
         }
     }
 }

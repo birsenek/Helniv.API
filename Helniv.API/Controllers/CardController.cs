@@ -45,25 +45,24 @@ namespace Helniv.API.Controllers
         }
 
         [HttpPost]
-       
-        public IActionResult CreateCard([FromForm]CreateCardRequestModel cardModel)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult CreateCard([FromForm] CreateCardRequestModel cardModel)
         {
-            _cardService.CreateCard(cardModel);
             var file = Request.Form.Files[0];
-            using (var savePath = System.IO.File.Create("D:\\Projetos\\Helniv\\Cartas_Test_Upload\\" + file.FileName.ToString()))
-            {
-                file.CopyTo(savePath);
-
-            }
+            _cardService.CreateCard(cardModel, file);
+            
             return Ok(new { message = "Carta criada com sucesso!" });
         }
 
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult UpdateCard(int id, Card card)
+        public IActionResult UpdateCard(int id, [FromForm]UpdateCardRequestModel cardModel)
         {
-            _cardService.UpdateCard(id, card);
+            var file = Request.Form.Files[0];
+            _cardService.UpdateCard(id, cardModel, file);
+            
             return Ok(new { message = "Carta atualizada com sucesso!" });
         }
 
